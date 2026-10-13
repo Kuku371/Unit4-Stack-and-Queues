@@ -10,25 +10,28 @@ public class ArrayStack<T> implements Stack<T> {
 
     @Override
     public void push(T item) {
-        // TODO: If the array is full, double its capacity; then store item at index n and increment n.
+        items[n] = item;
+        n++;
     }
 
     @Override
     public T pop() {
-        // TODO: Decrement n, save and return that item, and set the popped slot to null to avoid loitering.
-        return null;
+        if (n==0){
+            throw new IllegalArgumentException();
+        }
+        T outity = items[n-1];
+        items[n-1]=null;
+        return outity;
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO: Return true when n is zero.
-        return false;
+        return (n==0);
     }
 
     @Override
     public int size() {
-        // TODO: Return the number of items currently in the stack.
-        return 0;
+        return n;
     }
 
     /**
@@ -39,6 +42,8 @@ public class ArrayStack<T> implements Stack<T> {
     public static boolean isValid(String s) {
         // TODO: Use an ArrayStack<Character> to check matching brackets. Push opening brackets;
         // for each closer, check that the most recent opener has the matching type.
+        ArrayStack<String> characters = new ArrayStack<String>();
+
         return false;
     }
 
