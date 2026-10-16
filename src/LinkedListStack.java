@@ -1,4 +1,4 @@
-public class LinkedListStack<T> implements Stack<T> {
+ class LinkedListStack<T> implements Stack<T> {
     private class Node {
         T item;
         Node next;

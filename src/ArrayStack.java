@@ -43,7 +43,26 @@ public class ArrayStack<T> implements Stack<T> {
         // TODO: Use an ArrayStack<Character> to check matching brackets. Push opening brackets;
         // for each closer, check that the most recent opener has the matching type.
         ArrayStack<String> characters = new ArrayStack<String>();
+        while (s.length() != 0){
+            String newity = String.valueOf(s.charAt(0));
+            if (newity.equals("(") || newity.equals("{") || newity.equals("[")){
+                characters.push(newity);
+            }
+            else {
+                if (characters.isEmpty()){
+                    return false;
+                }
+                String comparity = characters.pop();
+                if (comparity.equals(newity)){
+                    return false;
+                }
+            }
 
+            s=s.substring(1,s.length());
+        }
+        if (characters.isEmpty()){
+            return true;
+        }
         return false;
     }
 
